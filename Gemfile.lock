@@ -86,6 +86,9 @@ GEM
     class_variants (0.0.6)
     concurrent-ruby (1.2.0)
     crass (1.0.6)
+    cuprite (0.14.3)
+      capybara (~> 3.0)
+      ferrum (~> 0.13.0)
     date (3.3.3)
     debug (1.7.1)
       irb (>= 1.5.0)
@@ -98,6 +101,11 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
+    ferrum (0.13)
+      addressable (~> 2.5)
+      concurrent-ruby (~> 1.1)
+      webrick (~> 1.7)
+      websocket-driver (>= 0.6, < 0.8)
     ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -225,11 +233,6 @@ GEM
     rspec-support (3.12.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
-    rubyzip (2.3.2)
-    selenium-webdriver (4.8.0)
-      rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 3.0)
-      websocket (~> 1.0)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
     sprockets (4.2.0)
@@ -260,7 +263,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    websocket (1.2.9)
+    webrick (1.8.1)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -277,6 +280,7 @@ DEPENDENCIES
   bootsnap
   capybara
   class_variants
+  cuprite
   debug
   dotenv-rails
   http
@@ -289,7 +293,6 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   redis (~> 4.0)
   rspec-rails
-  selenium-webdriver
   shoulda-matchers
   sprockets-rails
   sqlite3 (~> 1.4)

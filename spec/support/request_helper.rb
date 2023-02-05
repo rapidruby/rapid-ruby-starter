@@ -4,4 +4,7 @@ module RequestHelper
   end
 end
 
-RSpec.configure { |config| config.include RequestHelper, type: :request }
+RSpec.configure do |config|
+  config.include RequestHelper, type: :request
+  config.before(:each, type: :request) { host! "rapidrubystarter.test" }
+end

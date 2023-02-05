@@ -5,9 +5,15 @@ module SystemTestHelper
     fill_in :password, with: "Secret1*3*5*"
     click_on "Sign in"
 
-    assert_current_path lessons_path
+    assert_current_path root_path
     user
+  end
+
+  def open_debug!
+    page.driver.debug(binding)
   end
 end
 
-RSpec.configure { |config| config.include SystemTestHelper, type: :feature }
+RSpec.configure do |config|
+  config.include SystemTestHelper, type: :feature
+end

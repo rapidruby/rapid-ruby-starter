@@ -72,7 +72,7 @@ end
 group :test do
   gem "shoulda-matchers", require: false
   gem "capybara"
-  gem "selenium-webdriver"
+  gem "cuprite"
   # gem "vcr", require: false
   # gem "webmock"
 end

@@ -1,0 +1,28 @@
+<div class="relative ml-3" data-controller="toggle" data-toggle-click-outside="add">
+  <div>
+    <button data-action="toggle#toggle" type="button" class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+      <span class="sr-only">Open user menu</span>
+      <span class="mr-3 text-gray-600 text-sm">Hi <%= Current.user.first_name %></span>
+      <%= Current.user.letters_svg %>
+    </button>
+  </div>
+
+  <div data-toggle-target="toggleable" data-css-class="hidden" class="hidden origin-top-right absolute top-full right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 z-30" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+    <div class="px-4 py-3">
+      <p class="text-sm">
+        <%= t("nav.signed_in_as") %>
+      </p>
+      <p class="text-sm font-medium text-gray-900 truncate">
+        <%= current_user.email %>
+      </p>
+    </div>
+    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+      <%= link_to "Change email address", edit_identity_email_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+      <%= link_to "Change password", edit_password_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+      <%= link_to "Devices & Sessions", sessions_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+    </div>
+    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+      <%= button_to "Log out", session_path(Current.session), method: :delete, class: "block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+    </div>
+  </div>
+</div>

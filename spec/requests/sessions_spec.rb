@@ -19,7 +19,7 @@ RSpec.describe "Sessions", type: :request do
     post sign_in_url, params: { email: user.email, password: "Secret1*3*5*" }
     assert_enqueued_email_with SessionMailer, :signed_in_notification, args: { session: user.sessions.last }
 
-    expect(response).to redirect_to(lessons_path)
+    expect(response).to redirect_to(root_path)
 
     get root_url
     expect(response).to have_http_status(:success)
