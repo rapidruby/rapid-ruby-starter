@@ -1,0 +1,68 @@
+<div class="max-w-md mx-auto">
+  <div class="mb-8">
+    <%= tag.h1 "Sign up", class: page_title_classes.render %>
+    <p class="mt-2 text-sm text-gray-600">
+      Already have an account?
+      <%= link_to "Sign in", sign_in_path, class: "font-medium text-red-600 hover:text-red-700" %>
+    </p>
+  </div>
+
+  <%= form_with(url: sign_up_path) do |form| %>
+    <%= render "shared/form_errors", resource: @user %>
+
+    <div class="mb-3 sm:grid sm:grid-cols-2 sm:gap-4">
+      <div>
+        <%= form.label :first_name, class: label_classes.render %>
+        <div class="mt-1">
+          <%= form.text_field :first_name, autofocus: true, autocomplete: "given-name", class: input_classes.render %>
+        </div>
+      </div>
+
+
+      <div>
+        <%= form.label :last_name, class: label_classes.render %>
+        <div class="mt-1">
+          <%= form.text_field :last_name, autocomplete: "family-name", class: input_classes.render %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+      <%= form.label :email, class: label_classes.render %>
+      <div class="mt-1">
+        <%= form.email_field :email, autocomplete: "email", class: input_classes.render %>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :password, class: label_classes.render %>
+      <div class="mt-1">
+        <%= form.password_field :password, autocomplete: "new-password", class: input_classes.render %>
+      </div>
+      <%= tag.span "12 characters minimum.", class: hint_classes.render %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :password_confirmation, class: label_classes.render %>
+      <div class="mt-1">
+        <%= form.password_field :password_confirmation, autocomplete: "new-password", class: input_classes.render %>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :terms_and_conditions do %>
+        <div class="flex items-start">
+          <%= form.check_box :terms_and_conditions, class: "mt-0.5 mr-3 focus:ring-indigo-500 h-4 w-4 text-red-600 border-gray-300 rounded" %>
+          <span class="font-normal text-gray-600 text-sm">
+            I have read and agreee to the <%= link_to "Terms and Conditions", "#", target: "_blank", class: "underline text-gray-900" %> and <%= link_to "Privacy Policy", "#", target: "_blank", class: "underline text-gray-900" %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.submit "Sign up", class: button_classes.render(fullwidth: true) %>
+    </div>
+  <% end %>
+</div>

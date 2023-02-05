@@ -1,0 +1,38 @@
+<div class="max-w-md mx-auto">
+  <div class="mb-8">
+    <%= tag.h1 "Login", class: page_title_classes.render %>
+    <p class="mt-2 text-sm text-gray-600">
+      Need have an account?
+      <%= link_to "Get started", sign_in_path, class: "font-medium text-red-600 hover:text-red-700" %>
+    </p>
+  </div>
+
+  <%= form_with(url: sign_in_path) do |form| %>
+    <div class="mb-3">
+      <%= form.label :email, class: label_classes.render %>
+      <div class="mt-1"><%= form.email_field :email, value: params[:email_hint], autofocus: true, required: true, autocomplete: "email", class: input_classes.render %></div>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :password, class: label_classes.render %>
+      <div class="mt-1"><%= form.password_field :password, required: true, autocomplete: "current-password", class: input_classes.render %></div>
+    </div>
+
+    <div>
+      <%= form.submit "Sign in", class: button_classes.render(fullwidth: true) %>
+    </div>
+  <% end %>
+
+  <div class="mt-6 relative">
+    <div class="absolute inset-0 flex items-center">
+      <div class="w-full border-t border-gray-300"></div>
+    </div>
+    <div class="relative flex justify-center text-sm">
+      <span class="bg-white px-2 text-gray-500">Or</span>
+    </div>
+  </div>
+
+  <div class="mt-5 text-center">
+    <%= link_to "Forgot your password?", new_identity_password_reset_path %>
+  </div>
+</div>
