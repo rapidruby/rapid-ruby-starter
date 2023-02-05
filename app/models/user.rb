@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, allow_nil: true, length: { minimum: 12 }, format: { with: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/ }
+  validates :password, allow_nil: true, length: { minimum: 8 }
   validates :terms_and_conditions, acceptance: true, on: :create
 
   before_validation if: -> { email.present? } do
