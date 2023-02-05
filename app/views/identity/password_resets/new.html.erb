@@ -1,14 +1,18 @@
-<p style="color: red"><%= alert %></p>
+<% title "Forgot your password?" %>
 
-<h1>Forgot your password?</h1>
-
-<%= form_with(url: identity_password_reset_path) do |form| %>
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.email_field :email, autofocus: true, required: true %>
+<div class="max-w-md mx-auto">
+  <div class="mb-8">
+    <%= tag.h1 "Forgot your password?", class: page_title_classes.render %>
   </div>
 
-  <div>
-    <%= form.submit "Send password reset email" %>
-  </div>
-<% end %>
+  <%= form_with(url: identity_password_reset_path) do |form| %>
+    <div class="mb-4">
+      <%= form.label :email, class: label_classes.render %>
+      <div class="mt-1"><%= form.email_field :email, autofocus: true, required: true, class: input_classes.render %></div>
+    </div>
+
+    <div>
+      <%= form.submit "Send password reset email", class: button_classes.render(fullwidth: true) %>
+    </div>
+  <% end %>
+</div>

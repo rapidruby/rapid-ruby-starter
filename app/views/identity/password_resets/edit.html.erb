@@ -1,32 +1,28 @@
-<h1>Reset your password</h1>
+<% title "Reset your password" %>
 
-<%= form_with(url: identity_password_reset_path, method: :patch) do |form| %>
-  <% if @user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="max-w-md mx-auto">
+  <div class="mb-8">
+    <%= tag.h1 "Reset your password", class: page_title_classes.render %>
+  </div>
 
-      <ul>
-        <% @user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(url: identity_password_reset_path, method: :patch) do |form| %>
+    <%= render "shared/form_errors", resource: @user %>
+
+    <%= form.hidden_field :sid, value: params[:sid] %>
+
+    <div class="mb-4">
+      <%= form.label :password, "New password", style: "display: block" %>
+      <div class="mt-1"><%= form.password_field :password, required: true, autofocus: true, autocomplete: "new-password", class: input_classes.render %></div>
+      <%= tag.span "8 characters minimum.", class: hint_classes.render %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :password_confirmation, "Confirm new password", style: "display: block" %>
+      <div class="mt-1"><%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", class: input_classes.render %></div>
+    </div>
+
+    <div>
+      <%= form.submit "Save changes", class: button_classes.render(fullwidth: true) %>
     </div>
   <% end %>
-
-  <%= form.hidden_field :sid, value: params[:sid] %>
-
-  <div>
-    <%= form.label :password, "New password", style: "display: block" %>
-    <%= form.password_field :password, required: true, autofocus: true, autocomplete: "new-password" %>
-    <div>8 characters minimum.</div>
-  </div>
-
-  <div>
-    <%= form.label :password_confirmation, "Confirm new password", style: "display: block" %>
-    <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
-  </div>
-
-  <div>
-    <%= form.submit "Save changes" %>
-  </div>
-<% end %>
+</div>
