@@ -1,14 +1,22 @@
 module StylesHelper
+  def page_title(title)
+    tag.h1 title, class: page_title_classes.render
+  end
+
   def page_title_classes
-    class_variants("mt-6 text-3xl font-bold tracking-tight text-slate-900",
+    class_variants("font-bold tracking-tight text-gray-800",
       variants: {
+        style: {
+          md: "text-3xl",
+        },
         align: {
           left: "text-left",
           center: "text-center",
         }
       },
       defaults: {
-        align: "left"
+        style: :md,
+        align: :left
       }
     )
   end
