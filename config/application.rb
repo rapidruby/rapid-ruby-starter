@@ -31,7 +31,21 @@ module RapidRubyStarter
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      g.skip_routes true
+      g.helper false
+      g.assets false
+      g.test_framework :rspec, fixture: false
+      g.helper_specs false
+      g.controller_specs false
+      g.system_tests false
+      g.view_specs false
+    end
+
+    # GZip all responses
+    config.middleware.use Rack::Deflater
+
+    # Fix tailwind/administrate issue
+    config.assets.css_compressor = nil
   end
 end
