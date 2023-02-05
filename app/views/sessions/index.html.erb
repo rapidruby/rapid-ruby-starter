@@ -1,29 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<% title "Devices & Sessions" %>
 
-<h1>Devices & Sessions</h1>
+<%= tag.h1 "Devices & Sessions", class: page_title_classes.render %>
 
-<div id="sessions">
+<div id="sessions" class="mt-8">
   <% @sessions.each do |session| %>
-    <div id="<%= dom_id session %>">
-      <p>
-        <strong>User Agent:</strong>
-        <%= session.user_agent %>
-      </p>
+    <div class="flex items-center justify-between">
+      <div id="<%= dom_id session %>">
+        <p>
+          <strong>User Agent:</strong>
+          <%= session.user_agent %>
+        </p>
 
-      <p>
-        <strong>Ip Address:</strong>
-        <%= session.ip_address %>
-      </p>
+        <p>
+          <strong>Ip Address:</strong>
+          <%= session.ip_address %>
+        </p>
 
-      <p>
-        <strong>Created at:</strong>
-        <%= session.created_at %>
-      </p>
-
+        <p>
+          <strong>Created at:</strong>
+          <%= session.created_at %>
+        </p>
+      </div>
+      <%= button_to "Log out", session, method: :delete, class: button_classes.render(style: :secondary) %>
     </div>
-    <p>
-      <%= button_to "Log out", session, method: :delete %>
-    </p>
   <% end %>
 </div>
 
