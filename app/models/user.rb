@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   has_many :email_verification_tokens, dependent: :destroy
   has_many :password_reset_tokens, dependent: :destroy
-
   has_many :sessions, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }

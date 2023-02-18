@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # Authentication routes
   get  "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
   get  "sign_up", to: "registrations#new"
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
     resource :email_verification, only: [:edit, :create]
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end
+
+  # App routes
+  resources :posts
 
   root "pages#home"
 end
