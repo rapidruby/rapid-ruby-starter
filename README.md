@@ -14,8 +14,10 @@ This app is a starter template that I use for most of my example apps that I bui
 ### Creating a fresh app
 
 ```sh
+cd ~/Sites/youtube
 git clone git@github.com:phawk/rapid-ruby-starter.git new_project_name
 cd new_project_name
+code .
 bundle install
 git remote rm origin
 bin/rails db:create
