@@ -1,24 +1,27 @@
-# README
+# RapidRuby.com Starter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is a starter template that I use for most of my example apps that I build for my Youtube and Rapid Ruby episodes.
 
-Things you may want to cover:
+### Core features
 
-* Ruby version
+- Rails 7
+- Hotwire using importmaps
+- Tailwind CSS
+- User authentication with authentication-zero
+- ViewComponent
+- RSpec
 
-* System dependencies
+### Creating a fresh app
 
-* Configuration
+```sh
+git clone git@github.com:phawk/rapid-ruby-starter.git new_project_name
+cd new_project_name
+bundle install
+git remote rm origin
+bin/rails db:create
+bin/rails s
+```
 
-* Database creation
+### License
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[The MIT License (MIT)](LICENSE.txt)
