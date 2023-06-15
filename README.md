@@ -27,6 +27,8 @@ git remote rm origin
 gh repo create new_project_name --public --source=.
 git push origin main -u
 bin/rails db:create
+# Create your user account interactively
+bin/rails admin:create_user
 # Run the server
 bin/dev
 ```
