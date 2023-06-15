@@ -22,6 +22,7 @@ git clone git@github.com:phawk/rapid-ruby-starter.git new_project_name
 cd new_project_name
 code .
 bundle install
+yarn install
 git remote rm origin
 gh repo create new_project_name --public --source=.
 git push origin main -u
