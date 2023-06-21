@@ -27,6 +27,7 @@ git remote rm origin
 gh repo create new_project_name --public --source=.
 git push origin main -u
 bin/rails db:create
+bin/rails db:migrate && bin/rails db:migrate RAILS_ENV=test
 # Create your user account interactively
 bin/rails admin:create_user
 # Run the server
