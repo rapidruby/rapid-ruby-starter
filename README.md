@@ -1,4 +1,4 @@
-# RapidRuby.com Starter
+# RapidRuby.com Starter template
 
 This app is a starter template that I use for most of my example apps that I build for my Youtube and Rapid Ruby episodes.
 
