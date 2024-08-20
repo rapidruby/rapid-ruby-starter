@@ -16,13 +16,17 @@ RSpec.describe "Sessions", type: :request do
   end
 
   it "should sign in" do
-    post sign_in_url, params: { email: user.email, password: "Secret1*3*5*" }
-    assert_enqueued_email_with SessionMailer, :signed_in_notification, args: { session: user.sessions.last }
+    perform_enqueued_jobs do
+      post sign_in_url, params: { email: user.email, password: "Secret1*3*5*" }
 
-    expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(root_path)
 
-    get root_url
-    expect(response).to have_http_status(:success)
+      get root_url
+      expect(response).to have_http_status(:success)
+
+      expect(last_email.to.first).to eq(user.email)
+      expect(last_email.subject).to eq("New sign-in to your account")
+    end
   end
 
   it "should not sign in with wrong credentials" do
