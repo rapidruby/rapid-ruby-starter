@@ -5,9 +5,11 @@ pete:
   email: pete@rapidruby.com
   password_digest: <%= BCrypt::Password.create("Secret1*3*5*") %>
   verified: true
+  team: petes_team
 lazaro_nixon:
   first_name: "Lazaro"
   last_name: "Nixon"
   email: lazaronixon@hotmail.com
   password_digest: <%= BCrypt::Password.create("Secret1*3*5*") %>
   verified: true
+  team: lazaro_nixon_team

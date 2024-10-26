@@ -8,7 +8,10 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    @user.team = Team.new(name: "#{@user.first_name}’s Team")
+
     if @user.save
+      @user.team.users << @user
       session = @user.sessions.create!
       cookies.signed.permanent[:session_token] = { value: session.id, httponly: true }
 

@@ -1,0 +1,8 @@
+pete_team_user:
+  user: pete
+  team: petes_team
+  role: owner
+lazaro_nixon_team_user:
+  user: lazaro_nixon
+  team: lazaro_nixon_team
+  role: owner

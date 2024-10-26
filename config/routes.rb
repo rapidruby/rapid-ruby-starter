@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
 
   # App routes
-  resources :posts
   resources :lessons, only: :index
 
   root "pages#home"

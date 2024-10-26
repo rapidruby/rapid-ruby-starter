@@ -16,9 +16,8 @@
               <%= image_tag "rapid-ruby-stamp-dark.svg", alt: "Rapid Ruby", class: "h-10 w-auto" %>
             <% end %>
             <div class="ml-10 hidden space-x-8 lg:block">
-              <% nav_links.each do |nav| %>
-                <%= link_to nav.title, nav.path, class: "text-base font-medium text-gray-200 hover:text-white" %>
-              <% end %>
+              <%= link_to "Home", root_path, class: "text-base font-medium text-gray-200 hover:text-white" %>
+              <%= link_to "Lessons", lessons_path, class: "text-base font-medium text-gray-200 hover:text-white" %>
             </div>
           </div>
           <div class="ml-10 space-x-4">
@@ -31,9 +30,8 @@
           </div>
         </div>
         <div class="flex flex-wrap justify-center gap-x-6 py-4 lg:hidden">
-          <% nav_links.each do |nav| %>
-            <%= link_to nav.title, nav.path, class: "text-base font-medium text-gray-200 hover:text-white" %>
-          <% end %>
+          <%= link_to "Home", root_path, class: "text-base font-medium text-gray-200 hover:text-white" %>
+          <%= link_to "Lessons", lessons_path, class: "text-base font-medium text-gray-200 hover:text-white" %>
         </div>
       </nav>
     </header>
