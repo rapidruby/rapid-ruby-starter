@@ -18,7 +18,10 @@ namespace :admin do
       verified: true
     )
 
+    user.team = Team.new(name: "#{user.first_name}’s Team")
+
     if user.save(validates: false)
+      user.team.users << user
       puts "User created with email: #{email}"
     else
       puts "Creation failed, please try again"
