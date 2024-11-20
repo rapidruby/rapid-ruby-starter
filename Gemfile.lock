@@ -234,7 +234,6 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
-    redis (4.8.0)
     regexp_parser (2.9.2)
     reline (0.5.10)
       io-console (~> 0.5)
@@ -262,6 +261,11 @@ GEM
     securerandom (0.3.1)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
+    solid_cable (3.0.2)
+      actioncable (>= 7.2)
+      activejob (>= 7.2)
+      activerecord (>= 7.2)
+      railties (>= 7.2)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -319,9 +323,9 @@ DEPENDENCIES
   meta-tags
   puma (~> 6.0)
   rails (~> 7.2.0)
-  redis (~> 4.0)
   rspec-rails
   shoulda-matchers
+  solid_cable
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
