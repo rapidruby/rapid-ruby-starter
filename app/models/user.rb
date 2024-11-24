@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   validates :first_name, :last_name, presence: true
-  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, disposable_email: true, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, allow_nil: true, length: { minimum: 8 }, format: { with: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/ }
   validates :terms_and_conditions, acceptance: true, on: :create
 
