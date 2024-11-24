@@ -15,7 +15,8 @@ namespace :admin do
       last_name: last_name,
       email: email,
       password: password,
-      verified: true
+      verified: true,
+      admin: true
     )
 
     user.team = Team.new(name: "#{user.first_name}’s Team")
