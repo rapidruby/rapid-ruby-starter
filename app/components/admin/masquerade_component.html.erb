@@ -1,0 +1,4 @@
+<div class="flex items-center justify-between bg-orange-50 p-4 mb-8">
+  <p class="text-orange-800">You are masquerading as <%= session.user.email %></p>
+  <%= button_to "Return to admin", reverse_masquerade_admin_user_path(session.admin_user), method: :post, class: helpers.button_classes.render(style: :secondary) %>
+</div>

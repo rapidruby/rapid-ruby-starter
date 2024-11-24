@@ -1,5 +1,17 @@
 module Admin
   class UsersController < Admin::ApplicationController
+    skip_before_action :authenticate_admin, only: :reverse_masquerade
+
+    def masquerade
+      Current.session.masquerade_as!(requested_resource)
+      redirect_to root_path
+    end
+
+    def reverse_masquerade
+      Current.session.reverse_masquerade!
+      redirect_to admin_users_path
+    end
+
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #

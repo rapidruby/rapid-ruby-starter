@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   namespace :admin do
-      resources :sessions
-      resources :teams
-      resources :team_users
-      resources :users
-
-      root to: "users#index"
+    resources :sessions
+    resources :teams
+    resources :team_users
+    resources :users do
+      member do
+        post :masquerade
+        post :reverse_masquerade
+      end
     end
+
+    root to: "users#index"
+  end
   # Authentication routes
   get  "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"

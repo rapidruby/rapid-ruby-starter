@@ -37,6 +37,8 @@
     </header>
 
     <main class="max-w-7xl mx-auto mt-10 lg:mt-16 px-6 lg:px-8">
+      <%= render Admin::MasqueradeComponent.new(session: Current.session) %>
+
       <%= yield %>
     </main>
   </body>
