@@ -135,6 +135,9 @@ GEM
     erubi (1.13.0)
     et-orbi (1.2.11)
       tzinfo
+    exception_notification (4.1.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     ferrum (0.15)
       addressable (~> 2.5)
       concurrent-ruby (~> 1.1)
@@ -328,6 +331,7 @@ GEM
     selectize-rails (0.12.6)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
+    slack-notifier (2.4.0)
     solid_cable (3.0.2)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -397,6 +401,7 @@ DEPENDENCIES
   dotenv-rails
   dry-initializer (~> 3.1)
   dry-operation
+  exception_notification
   http
   image_processing (~> 1.2)
   inline_svg
@@ -409,6 +414,7 @@ DEPENDENCIES
   redcarpet (~> 3.6)
   rspec-rails
   shoulda-matchers
+  slack-notifier
   solid_cable
   solid_queue
   sprockets-rails

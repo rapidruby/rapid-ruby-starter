@@ -8,7 +8,8 @@ RSpec.describe "SessionsTest", type: :feature do
   it "visiting the index" do
     sign_in_as @user
 
-    click_on "Devices & Sessions", match: :first
+    click_on "Manage account", match: :first
+    click_on "Manage devices and sessions", match: :first
     assert_selector "h1", text: "Sessions"
   end
 

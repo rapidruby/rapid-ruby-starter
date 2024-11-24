@@ -1,0 +1,23 @@
+<%= form_with(url: password_path, method: :patch, id: "change_password_form") do |form| %>
+  <%= render "shared/form_errors", resource: @user %>
+
+  <div class="mb-4">
+    <%= form.label :current_password, class: label_classes.render %>
+    <div class="mt-1"><%= form.password_field :current_password, required: true, autocomplete: "current-password", class: input_classes.render %></div>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :password, "New password", class: label_classes.render %>
+    <div class="mt-1"><%= form.password_field :password, required: true, autocomplete: "new-password", class: input_classes.render %></div>
+    <%= tag.span "8 characters minimum.", class: hint_classes.render %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :password_confirmation, "Confirm new password", class: label_classes.render %>
+    <div class="mt-1"><%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", class: input_classes.render %></div>
+  </div>
+
+  <div>
+    <%= form.submit "Save changes", class: button_classes.render %>
+  </div>
+<% end %>

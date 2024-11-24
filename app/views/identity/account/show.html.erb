@@ -1,0 +1,107 @@
+<div class="overflow-hidden py-16 sm:py-20">
+  <div class="centered-container">
+    <%= tag.h1 "Manage your account", class: page_title_classes.render %>
+
+    <div class="divide-y divide-gray-100">
+      <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 py-16 md:grid-cols-3">
+        <%= render(FieldsetHeaderComponent.new(
+          title: "Personal Information",
+          description: "Manage your personal info and change the avatar associated with your account."
+        )) %>
+
+        <%= form_with(url: identity_account_path, model: @user, method: :patch, html: { class: "md:col-span-2" }) do |f| %>
+          <div class="grid grid-cols-1 gap-x-6 gap-y-4 sm:max-w-xl sm:grid-cols-6">
+            <div class="col-span-full flex items-center gap-x-8">
+              <%= render(AvatarComponent.new(user: Current.user, css_classes: "rounded-lg")) %>
+              <div>
+                <%= f.label :avatar, class: label_classes.render %>
+                <div class="mt-1">
+                  <%= f.file_field :avatar, accept: "image/jpg,image/jpeg,image/png,image/gif" %>
+                  <p class="mt-2 text-xs leading-5 text-gray-500">JPG, GIF or PNG. 1MB max.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <%= f.label :first_name, class: label_classes.render %>
+              <div class="mt-2">
+                <%= f.text_field :first_name, autocomplete: "given-name", class: input_classes.render %>
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <%= f.label :last_name, class: label_classes.render %>
+              <div class="mt-2">
+                <%= f.text_field :last_name, autocomplete: "family-name", class: input_classes.render %>
+              </div>
+            </div>
+
+            <div class="col-span-full">
+              <%= f.label :email, class: label_classes.render %>
+              <div class="mt-2">
+                <%= f.text_field :email, disabled: true, class: input_classes.render %>
+                <span class="text-xs mt-1 text-gray-500">You can change your email address using the form below&hellip;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <%= f.submit "Save changes", class: button_classes.render %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 py-16 md:grid-cols-3">
+        <%= render(FieldsetHeaderComponent.new(
+          title: Current.user.verified? ? "Change email" : "Verify your email"
+        )) do %>
+          <% if Current.user.verified? %>
+            <p class="mt-1 text-sm leading-6 text-gray-500">Update the email address associated with your account.</p>
+          <% else %>
+            <p class="mt-1 text-sm leading-6 text-gray-500">We've sent you an email to <%= Current.user.email %> to verify your account. Click the link in the email to verify your account.</p>
+            <p class="mt-1 text-sm leading-6 text-gray-500"><%= button_to "Re-send verification email", identity_email_verification_path, class: button_classes.render(style: :secondary) %></p>
+          <% end %>
+        <% end %>
+
+        <div class="md:col-span-2">
+          <%= render partial: "identity/emails/form" %>
+        </div>
+      </div>
+
+      <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 py-16 md:grid-cols-3">
+        <%= render(FieldsetHeaderComponent.new(
+          title: "Change password",
+          description: "Update your password associated with your account."
+        )) %>
+
+        <div class="md:col-span-2">
+          <%= render partial: "passwords/form" %>
+        </div>
+      </div>
+
+      <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 py-16 md:grid-cols-3">
+        <%= render(FieldsetHeaderComponent.new(
+          title: "Log out other sessions",
+          description: "You can manage your sessions to log out across any of your other devices."
+        )) %>
+
+        <div class="md:col-span-2">
+          <%= link_to "Manage devices and sessions", sessions_path, class: button_classes.render(style: :secondary) %>
+        </div>
+      </div>
+
+      <% if false %>
+      <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 py-16 md:grid-cols-3">
+        <%= render(FieldsetHeaderComponent.new(
+          title: "Delete account",
+          description: "No longer want to use our service? You can delete your account here. This action is not reversible. All information related to this account will be deleted permanently."
+        )) %>
+
+        <form class="flex items-start md:col-span-2">
+          <button type="submit" class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-red-400">Yes, delete my account</button>
+        </form>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

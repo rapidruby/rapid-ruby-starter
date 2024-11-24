@@ -4,10 +4,12 @@ RSpec.describe "Identity::EmailsTest", type: :feature do
   let!(:user) { sign_in_as(users(:lazaro_nixon)) }
 
   it "updates the email" do
-    click_on "Change email address"
+    click_on "Manage account", match: :first
 
-    fill_in "New email", with: "new_email@hey.com"
-    click_on "Save changes"
+    within("#change_email_form") do
+      fill_in "New email", with: "new_email@hey.com"
+      click_on "Save changes"
+    end
 
     assert_text "Your email has been changed"
   end
@@ -15,8 +17,8 @@ RSpec.describe "Identity::EmailsTest", type: :feature do
   it "sends a verification email" do
     user.update! verified: false
 
-    click_on "Change email address"
-    assert_current_path "/identity/email/edit"
+    click_on "Manage account", match: :first
+    assert_current_path "/identity/account"
     click_on "Re-send verification email"
 
     assert_text "We sent a verification email to your email address"

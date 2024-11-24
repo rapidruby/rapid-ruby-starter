@@ -14,7 +14,7 @@ RSpec.describe "Identity::EmailVerificationsController", type: :request do
       expect(last_email.to.first).to eq(user.email)
       expect(last_email.subject).to eq("Verify your email")
 
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(identity_account_path)
     end
   end
 
@@ -22,7 +22,7 @@ RSpec.describe "Identity::EmailVerificationsController", type: :request do
     sid = user.email_verification_tokens.create.signed_id(expires_in: 2.days)
 
     get edit_identity_email_verification_url(sid: sid, email: user.email)
-    expect(response).to redirect_to(root_path)
+    expect(response).to redirect_to(identity_account_path)
   end
 
   it "should not verify email with expired token" do
@@ -30,7 +30,7 @@ RSpec.describe "Identity::EmailVerificationsController", type: :request do
 
     get edit_identity_email_verification_url(sid: sid_exp, email: user.email)
 
-    expect(response).to redirect_to(edit_identity_email_url)
+    expect(response).to redirect_to(identity_account_url)
     expect(flash[:alert]).to eq("That email verification link is invalid")
   end
 end

@@ -91,3 +91,7 @@ gem "mission_control-jobs"
 
 gem "dry-initializer", "~> 3.1"
 gem "dry-operation"
+
+# Exception tracking
+gem "exception_notification"
+gem "slack-notifier"

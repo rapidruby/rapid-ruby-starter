@@ -1,0 +1,5 @@
+<% if has_custom_avatar? %>
+  <%= image_tag user.avatar.variant(:medium), class: combined_css_classes, alt: user.obfuscated_name %>
+<% else %>
+  <%= user.letters_svg(size: svg_dimensions, font_size: svg_font_size, extra_classes: combined_css_classes) %>
+<% end %>

@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   get  "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"
   resources :sessions, only: [:index, :show, :destroy]
-  resource  :password, only: [:edit, :update]
+  resource  :password, only: [:update]
   namespace :identity do
-    resource :email,              only: [:edit, :update]
+    resource :account,            only: [:show, :update], controller: :account
+    resource :email,              only: [:update]
     resource :email_verification, only: [:edit, :create]
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end
