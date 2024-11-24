@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :email_verification_tokens
+      resources :password_reset_tokens
+      resources :sessions
+      resources :teams
+      resources :team_users
+      resources :users
+
+      root to: "email_verification_tokens#index"
+    end
   # Authentication routes
   get  "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"

@@ -36,6 +36,13 @@ module RapidRubyStarter
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # Set Active::Job backend
+    config.active_job.queue_adapter = :solid_queue
+    config.mission_control.jobs.base_controller_class = "Admin::BaseController"
+    config.active_storage.queues.analysis = :default
+    config.active_storage.queues.purge = :default
+    config.active_storage.queues.mirror = :default
+
     config.generators do |g|
       g.skip_routes true
       g.helper false
