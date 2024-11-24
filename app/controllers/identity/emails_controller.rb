@@ -5,7 +5,6 @@ class Identity::EmailsController < ApplicationController
     if @user.update(user_params)
       redirect_to_root
     else
-      # render :edit, status: :unprocessable_entity
       render turbo_stream: turbo_stream.replace(
         "change_email_form",
         partial: "identity/emails/form"
