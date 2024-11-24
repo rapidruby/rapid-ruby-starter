@@ -38,4 +38,12 @@ class User < ApplicationRecord
   def name
     [first_name, last_name].compact.join(" ")
   end
+
+  def obfuscated_name
+    if last_name.present?
+      "#{first_name} #{last_name.chars.first}."
+    else
+      first_name
+    end
+  end
 end
