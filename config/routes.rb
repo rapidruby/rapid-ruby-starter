@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end
 
+  # Solid Queue UI
+  mount MissionControl::Jobs::Engine, at: "/admin/jobs"
+
   # App routes
   resources :lessons, only: :index
 

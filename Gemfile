@@ -81,3 +81,10 @@ gem "meta-tags"
 gem "class_variants"
 gem "http"
 gem "inline_svg"
+
+gem "view_component", "~> 3.13"
+gem "administrate"
+gem "redcarpet", "~> 3.6" # Markdown renderer
+
+gem "solid_queue"
+gem "mission_control-jobs"
