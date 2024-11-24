@@ -17,6 +17,7 @@ class UserDashboard < Administrate::BaseDashboard
     team_users: Field::HasMany,
     teams: Field::HasMany,
     verified: Field::Boolean,
+    admin: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -31,6 +32,7 @@ class UserDashboard < Administrate::BaseDashboard
     email
     first_name
     last_name
+    admin
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -45,6 +47,7 @@ class UserDashboard < Administrate::BaseDashboard
     team_users
     teams
     verified
+    admin
     created_at
     updated_at
   ].freeze
@@ -59,6 +62,7 @@ class UserDashboard < Administrate::BaseDashboard
     team
     teams
     verified
+    admin
   ].freeze
 
   # COLLECTION_FILTERS

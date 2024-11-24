@@ -21,6 +21,11 @@
       <%= link_to "Change password", edit_password_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
       <%= link_to "Devices & Sessions", sessions_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
     </div>
+    <% if admin? %>
+      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+        <%= link_to "Admin area", admin_root_path, class: "block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+      </div>
+    <% end %>
     <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
       <%= button_to "Log out", session_path(current_session), method: :delete, class: "block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
     </div>
