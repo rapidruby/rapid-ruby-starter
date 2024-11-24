@@ -26,6 +26,7 @@ yarn install
 git remote rm origin
 gh repo create new_project_name --public --source=.
 git push origin main -u
+bin/rails db:system:change --to=postgresql # optional
 bin/rails db:create
 bin/rails db:migrate && bin/rails db:migrate RAILS_ENV=test
 # Create your user account interactively
