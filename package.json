@@ -6,7 +6,8 @@
     "@hotwired/turbo-rails": "^7.3.0",
     "esbuild": "^0.18.3",
     "hotkeys-js": "^3.10.2",
-    "stimulus-use": "^0.52.0"
+    "stimulus-use": "^0.52.0",
+    "tailwindcss-stimulus-components": "^6.1.2"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"

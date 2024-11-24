@@ -172,3 +172,8 @@ stimulus-use@^0.52.0:
   version "0.52.0"
   resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.52.0.tgz#a52df4e2b59f3273fc6941f98fa173f0892d4e9d"
   integrity sha512-b2Z2krSSIqKvG9ncrjMlxbX3SYg9mgL0g/1Zc25jTZjTr0//wgg7szUi9G67amBs/yLqO12GAEnudybZgYNnjA==
+
+tailwindcss-stimulus-components@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-6.1.2.tgz#6b5437fd21a279b553c0ef6ce91b732466101943"
+  integrity sha512-vdygj+iEr7pErLvaK2MyxTvZ4hvOWyFO1ypeBYQYM7WY/9ZPK7lkX+Rl8RhnEjx4OZHCROVEukSi/qG/qBxkIA==
