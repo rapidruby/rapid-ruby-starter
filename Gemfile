@@ -88,3 +88,6 @@ gem "redcarpet", "~> 3.6" # Markdown renderer
 
 gem "solid_queue"
 gem "mission_control-jobs"
+
+gem "dry-initializer", "~> 3.1"
+gem "dry-operation"
