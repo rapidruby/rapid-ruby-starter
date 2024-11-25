@@ -13,6 +13,10 @@ module Authenticatable
     Current.user.present?
   end
 
+  def ensure_signed_out!
+    redirect_to(root_path) if user_signed_in?
+  end
+
   def load_session
     if session = Session.find_by_id(cookies.signed[:session_token])
       Current.session = session

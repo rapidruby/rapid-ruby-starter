@@ -1,5 +1,6 @@
 class RegistrationsController < ApplicationController
-  skip_before_action :authenticate
+  skip_before_action :authenticate, only: %i[ new create ]
+  before_action :ensure_signed_out!, only: %i[ new ]
 
   def new
     @user = User.new
