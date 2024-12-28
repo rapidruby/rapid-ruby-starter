@@ -21,7 +21,7 @@ namespace :admin do
 
     user.team = Team.new(name: "#{user.first_name}’s Team")
 
-    if user.save(validates: false)
+    if user.save(validate: false)
       user.team.users << user
       puts "User created with email: #{email}"
     else

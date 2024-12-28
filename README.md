@@ -4,7 +4,7 @@ This app is a starter template that I use for most of my example apps that I bui
 
 ### Core features
 
-- Rails 7
+- Rails 8
 - Hotwire using esbuild
 - Tailwind CSS
 - User authentication with authentication-zero
