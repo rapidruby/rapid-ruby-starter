@@ -71,6 +71,7 @@ Rails.application.configure do
 
   # Hotwire Spark
   config.hotwire.spark.enabled = true
-  config.hotwire.spark.html_reload_method = :replace
+  config.hotwire.spark.logging = true
+  config.hotwire.spark.html_reload_method = :morph
   config.hotwire.spark.html_paths << "app/components"
 end

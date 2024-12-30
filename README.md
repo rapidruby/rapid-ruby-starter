@@ -5,7 +5,7 @@ This app is a starter template that I use for most of my example apps that I bui
 ### Core features
 
 - Rails 8
-- Hotwire using esbuild
+- Hotwire using importmaps and spark for development
 - Tailwind CSS
 - User authentication with authentication-zero
 - ViewComponent
