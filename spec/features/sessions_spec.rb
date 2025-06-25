@@ -26,6 +26,6 @@ RSpec.describe "SessionsTest", type: :feature do
     sign_in_as @user
 
     click_on "Log out", match: :first
-    assert_text "That session has been logged out"
+    assert_text "You have been logged out"
   end
 end

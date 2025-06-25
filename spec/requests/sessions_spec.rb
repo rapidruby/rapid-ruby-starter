@@ -42,14 +42,29 @@ RSpec.describe SessionsController, type: :request do
   end
 
   describe "#destroy" do
-    it "should sign out" do
-      sign_in(user)
+    context "when the session is the current session" do
+      it "should sign out" do
+        sign_in(user)
 
-      delete session_url(user.sessions.last)
-      expect(response).to redirect_to(sessions_url)
+        delete session_url(user.sessions.last)
+        expect(response).to redirect_to(root_url)
+        expect(flash[:notice]).to eq("You have been logged out")
+      end
+    end
 
-      follow_redirect!
-      assert_redirected_to sign_in_url
+    context "when the session is not the current session" do
+      it "should delete that session but not the current session" do
+        sign_in(user)
+        login_session = user.sessions.first
+        session = user.sessions.create!
+
+        delete session_url(session)
+        expect(response).to redirect_to(sessions_url)
+        expect(flash[:notice]).to eq("That session has been logged out")
+
+        expect(user.sessions.count).to eq(1)
+        expect(user.sessions.first).to eq(login_session)
+      end
     end
   end
 end

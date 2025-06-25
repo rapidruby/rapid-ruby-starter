@@ -26,11 +26,19 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    @session.destroy; redirect_to(sessions_path, notice: "That session has been logged out")
+    if Current.session == @session
+      @session.destroy
+      cookies.signed.permanent[:session_token] = nil
+      redirect_to(root_path, notice: "You have been logged out")
+    else
+      @session.destroy
+      redirect_to(sessions_path, notice: "That session has been logged out")
+    end
   end
 
   private
-    def set_session
-      @session = Current.user.sessions.find(params[:id])
-    end
+
+  def set_session
+    @session = Current.user.sessions.find(params[:id])
+  end
 end
