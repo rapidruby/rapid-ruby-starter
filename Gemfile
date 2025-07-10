@@ -85,6 +85,7 @@ gem "administrate"
 gem "redcarpet", "~> 3.6" # Markdown renderer
 
 gem "solid_queue"
+gem "solid_cache"
 gem "mission_control-jobs"
 
 gem "dry-initializer", "~> 3.1"
