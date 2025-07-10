@@ -73,4 +73,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Clear Rails cache before each test to prevent rate limiting state pollution
+  # This ensures that rate limit counters from one test don't affect another test
+  config.before(:each) do
+    Rails.cache.clear
+  end
 end

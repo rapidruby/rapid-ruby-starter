@@ -1,4 +1,13 @@
 class SessionsController < ApplicationController
+  # Rate limit login attempts by IP (5 attempts per 20 minutes)
+  rate_limit to: 5, within: 20.minutes, only: :create, name: "login_ip",
+    with: -> { render plain: "Rate limit exceeded. Please try again later.\n", status: :too_many_requests }
+
+  # Rate limit login attempts by email (5 attempts per 20 minutes)
+  rate_limit to: 5, within: 20.minutes, only: :create, name: "login_email",
+    by: -> { params[:email]&.downcase || request.ip },
+    with: -> { render plain: "Rate limit exceeded. Please try again later.\n", status: :too_many_requests }
+
   skip_before_action :authenticate, only: %i[ new create ]
   before_action :ensure_signed_out!, only: %i[ new create ]
 

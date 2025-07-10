@@ -1,4 +1,7 @@
 class RegistrationsController < ApplicationController
+  rate_limit to: 5, within: 15.minutes, only: :create,
+    with: -> { render plain: "Rate limit exceeded. Please try again later.\n", status: :too_many_requests }
+
   skip_before_action :authenticate, only: %i[ new create ]
   before_action :ensure_signed_out!, only: %i[ new ]
 
