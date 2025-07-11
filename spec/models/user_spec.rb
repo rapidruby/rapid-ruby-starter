@@ -30,4 +30,17 @@ RSpec.describe User, type: :model do
       expect(user.obfuscated_name).to eq("John")
     end
   end
+
+  describe "name sanitization" do
+    it "sanitizes names through SanitizableNames concern" do
+      user = User.new(
+        first_name: "John 😀 https://example.com",
+        last_name: "Smith<script>alert('xss')</script>"
+      )
+      user.valid?
+
+      expect(user.first_name).to eq("John")
+      expect(user.last_name).to eq("Smithalert('xss')")
+    end
+  end
 end

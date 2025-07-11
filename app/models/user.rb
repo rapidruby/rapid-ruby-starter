@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Avatarable
+  include SanitizableNames
 
   attribute :terms_and_conditions
 
