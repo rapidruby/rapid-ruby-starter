@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   rate_limit to: 50, within: 5.minutes, name: "unsafe_requests",
     by: -> { request.ip if %w[POST PATCH PUT DELETE].include?(request.method) }
 
-  include Authenticatable
+  include Authentication
 
   before_action :prepare_exception_notifier
 
