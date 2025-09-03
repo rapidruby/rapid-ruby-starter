@@ -64,6 +64,9 @@ group :development do
   # gem "rack-mini-profiler"
 
   gem "hotwire-spark"
+
+  # Use Redis for Action Cable
+  gem "redis", "~> 5.4"
 end
 
 group :test do
@@ -93,6 +96,3 @@ gem "dry-operation"
 # Exception tracking
 gem "exception_notification"
 gem "slack-notifier"
-
-# Use Redis for Action Cable
-gem "redis", "~> 5.4"
