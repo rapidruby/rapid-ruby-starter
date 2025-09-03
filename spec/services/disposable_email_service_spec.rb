@@ -7,7 +7,7 @@ RSpec.describe DisposableEmailService do
     end
 
     it "returns true when the email domain is disposable" do
-      expect(described_class.disposable?("info@zzz-xxx.com")).to be(true)
+      expect(described_class.disposable?("info@zyzs.freeml.net")).to be(true)
     end
   end
 end
