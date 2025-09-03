@@ -7,7 +7,7 @@ class PasswordsController < ApplicationController
     elsif @user.update(user_params)
       redirect_to identity_account_path, notice: "Your password has been changed"
     else
-      # render :edit, status: :unprocessable_entity
+      # render :edit, status: :unprocessable_content
       render turbo_stream: turbo_stream.replace(
         "change_password_form",
         partial: "passwords/form"

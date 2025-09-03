@@ -4,16 +4,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.3.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.0.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3"
+gem "sqlite3", "~> 2.7"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 6.0"
+gem "puma", "~> 6.6"
 
 gem "importmap-rails"
 
@@ -80,7 +80,7 @@ gem "class_variants"
 gem "http"
 gem "inline_svg"
 
-gem "view_component", "~> 3.13"
+gem "view_component", "~> 4.0"
 gem "administrate"
 gem "redcarpet", "~> 3.6" # Markdown renderer
 
@@ -96,4 +96,4 @@ gem "exception_notification"
 gem "slack-notifier"
 
 # Use Redis for Action Cable
-gem "redis", "~> 4.0"
+gem "redis", "~> 5.4"

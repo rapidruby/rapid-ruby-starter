@@ -38,7 +38,7 @@ RSpec.describe "Rate Limiting (Rails Built-in)", type: :request do
 
       5.times do |i|
         post "/sign_up", params: valid_user_attributes.merge(email: "user#{i}@example.com")
-        expect(response.status).to eq(422) # unprocessable_entity from validation failure
+        expect(response.status).to eq(422) # :unprocessable_content from validation failure
       end
     end
 
