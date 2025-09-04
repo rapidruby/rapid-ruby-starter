@@ -318,6 +318,8 @@ GEM
     regexp_parser (2.11.2)
     reline (0.6.2)
       io-console (~> 0.5)
+    requestjs-rails (0.0.13)
+      railties (>= 7.1.0)
     rexml (3.4.2)
     rspec-core (3.13.5)
       rspec-support (~> 3.13.0)
@@ -438,6 +440,7 @@ DEPENDENCIES
   rails (~> 8.0.2)
   redcarpet (~> 3.6)
   redis (~> 5.4)
+  requestjs-rails
   rspec-rails
   shoulda-matchers
   slack-notifier
