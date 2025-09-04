@@ -39,6 +39,7 @@ module RapidRubyStarter
     # Set Active::Job backend
     config.active_job.queue_adapter = :solid_queue
     config.mission_control.jobs.base_controller_class = "Admin::BaseController"
+    config.mission_control.jobs.http_basic_auth_enabled = false
     config.active_storage.queues.analysis = :default
     config.active_storage.queues.purge = :default
     config.active_storage.queues.mirror = :default
