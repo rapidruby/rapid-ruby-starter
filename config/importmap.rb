@@ -12,3 +12,4 @@ pin "stimulus-use" # @0.52.3
 pin "@rails/request.js", to: "requestjs.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 # pin "lodash", to: "https://esm.sh/lodash"
+pin "tailwindcss-stimulus-components" # @6.1.3
