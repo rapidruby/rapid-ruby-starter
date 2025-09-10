@@ -135,6 +135,11 @@ GEM
     exception_notification (5.0.1)
       actionmailer (>= 7.1, < 9)
       activesupport (>= 7.1, < 9)
+    factory_bot (6.5.5)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.5.1)
+      factory_bot (~> 6.5)
+      railties (>= 6.1.0)
     ferrum (0.17.1)
       addressable (~> 2.5)
       base64 (~> 0.2)
@@ -407,6 +412,7 @@ DEPENDENCIES
   dry-initializer (~> 3.1)
   dry-operation
   exception_notification
+  factory_bot_rails
   hotwire-spark
   http
   image_processing (~> 1.2)

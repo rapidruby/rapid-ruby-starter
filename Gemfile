@@ -71,6 +71,7 @@ group :test do
   gem "shoulda-matchers", require: false
   gem "capybara"
   gem "cuprite"
+  gem "factory_bot_rails"
   # gem "vcr", require: false
   # gem "webmock"
 end
